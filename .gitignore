@@ -1,4 +1,8 @@
 ._*
+.coverage
 *.iws
+*.pyc
 python/
+python3.3/
 __pycache__/
+src/build/

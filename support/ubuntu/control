@@ -1,0 +1,9 @@
+Package: pyprobe
+Version: 1.0-1
+Section: base
+Depends: python-psutil, python-requests
+Priority: optional
+Architecture: amd64
+Maintainer: Dirk Dittert <dirk.dittert@googlemail.com>
+Description: Mini Probe for PRTG.
+

@@ -1,0 +1,144 @@
+-------------------------------------------------------------------------------
+PdId: 6
+Model Number: Hitachi HDS72302
+Drive Type: SATA
+SMART Status: Enable
+SMART Health Status: OK
+SCT Status Version:                  3
+SCT Version (vendor specific):       256 (0x0100)
+SCT Support Level:                   1
+Device State:                        SMART Off-line Data Collection executing in background (4)
+Current Temperature:                    39 Celsius
+Power Cycle Min/Max Temperature:     37/39 Celsius
+Lifetime    Min/Max Temperature:     21/44 Celsius
+Under/Over Temperature Limit Count:   0/0
+Self-test execution status:      (   0)	The previous self-test routine
+					completed without error or no self-test
+					has ever been run.
+has ever been run.
+Error logging capability:        (0x01)	Error logging supported.
+Short self-test routine 
+recommended polling time: 	 (   1) minutes.
+Extended self-test routine
+recommended polling time: 	 ( 255) minutes.
+SCT capabilities: 	       (0x003d)	SCT Status supported.
+					SCT Feature Control supported.
+					SCT Data Table supported.
+
+SMART Self-test log structure revision number: 1
+No self-tests have been logged.  [To run self-tests, use: smartctl -t]
+
+SMART Error Log Version: 1
+ATA Error Count: 3
+	CR = Command Register [HEX]
+	FR = Features Register [HEX]
+	SC = Sector Count Register [HEX]
+	SN = Sector Number Register [HEX]
+	CL = Cylinder Low Register [HEX]
+	CH = Cylinder High Register [HEX]
+	DH = Device/Head Register [HEX]
+	DC = Device Command Register [HEX]
+	ER = Error register [HEX]
+	ST = Status register [HEX]
+Powered_Up_Time is measured from power on, and printed as
+DDd+hh:mm:SS.sss where DD=days, hh=hours, mm=minutes,
+SS=sec, and sss=millisec. It "wraps" after 49.710 days.
+
+Error 3 occurred at disk power-on lifetime: 2787 hours (116 days + 3 hours)
+  When the command that caused the error occurred,
+  the device was active or idle.
+
+  After command completion occurred, registers were:
+  ER ST SC SN CL CH DH
+  -- -- -- -- -- -- --
+  84 51 01 7f e6 07 02
+
+  Commands leading to the command that caused the error were:
+  CR FR SC SN CL CH DH DC   Powered_Up_Time  Command/Feature_Name
+  -- -- -- -- -- -- -- --  ----------------  --------------------
+  61 80 48 00 70 10 40 00   3d+10:26:06.065  WRITE FPDMA QUEUED
+  61 80 40 80 6f 10 40 00   3d+10:26:06.065  WRITE FPDMA QUEUED
+  61 80 38 00 6f 10 40 00   3d+10:26:06.065  WRITE FPDMA QUEUED
+  61 80 30 80 e6 07 40 00   3d+10:26:06.065  WRITE FPDMA QUEUED
+  61 00 28 80 e5 07 40 00   3d+10:26:06.065  WRITE FPDMA QUEUED
+
+Error 2 occurred at disk power-on lifetime: 2775 hours (115 days + 15 hours)
+  When the command that caused the error occurred,
+  the device was active or idle.
+
+  After command completion occurred, registers were:
+  ER ST SC SN CL CH DH
+  -- -- -- -- -- -- --
+  84 51 01 ff fb da 07
+
+  Commands leading to the command that caused the error were:
+  CR FR SC SN CL CH DH DC   Powered_Up_Time  Command/Feature_Name
+  -- -- -- -- -- -- -- --  ----------------  --------------------
+  61 80 38 00 fb da 40 00   2d+22:59:43.744  WRITE FPDMA QUEUED
+  61 80 30 80 fb da 40 00   2d+22:59:43.744  WRITE FPDMA QUEUED
+  61 80 28 80 68 a0 40 00   2d+22:59:43.743  WRITE FPDMA QUEUED
+  61 80 20 00 68 a0 40 00   2d+22:59:43.743  WRITE FPDMA QUEUED
+  61 80 18 80 67 a0 40 00   2d+22:59:43.743  WRITE FPDMA QUEUED
+
+Error 1 occurred at disk power-on lifetime: 2775 hours (115 days + 15 hours)
+  When the command that caused the error occurred,
+  the device was active or idle.
+
+  After command completion occurred, registers were:
+  ER ST SC SN CL CH DH
+  -- -- -- -- -- -- --
+  84 51 01 7f 4b 99 04
+
+  Commands leading to the command that caused the error were:
+  CR FR SC SN CL CH DH DC   Powered_Up_Time  Command/Feature_Name
+  -- -- -- -- -- -- -- --  ----------------  --------------------
+  61 80 c0 00 a0 b2 40 00   2d+22:37:13.587  WRITE FPDMA QUEUED
+  61 80 b8 80 4b 99 40 00   2d+22:37:13.586  WRITE FPDMA QUEUED
+  61 80 b0 00 4b 99 40 00   2d+22:37:13.586  WRITE FPDMA QUEUED
+  61 80 a8 80 9f b2 40 00   2d+22:37:13.586  WRITE FPDMA QUEUED
+  61 80 a0 00 9f b2 40 00   2d+22:37:13.585  WRITE FPDMA QUEUED
+
+
+
+SMART Attributes Data Structure revision number: 16
+Vendor Specific SMART Attributes with Thresholds:
+==============================================================================
+ID# ATTRIBUTE_NAME             FLAG    VALUE WORST THRESH TYPE      UPDATED
+    WHEN_FAILED  RAW_VALUE
+==============================================================================
+  1 Raw_Read_Error_Rate        0x000b  100   100   016    Pre-fail  Always
+         -         0
+  2 Throughput_Performance     0x0005  136   136   054    Pre-fail  Offline
+         -         83
+  3 Spin_Up_Time               0x0007  134   134   024    Pre-fail  Always
+         -         429 (Average 427)
+  4 Start_Stop_Count           0x0012  100   100   000    Old_age   Always
+         -         35
+  5 Reallocated_Sector_Ct      0x0033  100   100   005    Pre-fail  Always
+         -         0
+  7 Seek_Error_Rate            0x000b  100   100   067    Pre-fail  Always
+         -         0
+  8 Seek_Time_Performance      0x0005  138   138   020    Pre-fail  Offline
+         -         25
+  9 Power_On_Hours             0x0012  098   098   000    Old_age   Always
+         -         17624
+ 10 Spin_Retry_Count           0x0013  100   100   060    Pre-fail  Always
+        -         0
+ 12 Power_Cycle_Count          0x0032  100   100   000    Old_age   Always
+        -         20
+192 Power-Off_Retract_Count    0x0032  100   100   000    Old_age   Always
+       -         202
+193 Load_Cycle_Count           0x0012  100   100   000    Old_age   Always
+       -         202
+194 Temperature_Celsius        0x0002  157   157   000    Old_age   Always
+       -         38 (Lifetime Min/Max 21/44)
+196 Reallocated_Event_Count    0x0032  100   100   000    Old_age   Always
+       -         0
+197 Current_Pending_Sector     0x0022  100   100   000    Old_age   Always
+       -         0
+198 Offline_Uncorrectable      0x0008  100   100   000    Old_age   Offline
+       -         0
+199 UDMA_CRC_Error_Count       0x000a  200   200   000    Old_age   Always
+       -         3
+
+ 

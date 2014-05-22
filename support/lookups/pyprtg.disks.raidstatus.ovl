@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <ValueLookup id="pyprtg.disks.raidstatus" desiredValue="0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="PaeValueLookup.xsd">
+    <Lookups>
+      <SingleInt state="Ok" value="0">
+        Ok
+      </SingleInt>
+      <SingleInt state="Warning" value="1">
+        Rebuilding
+      </SingleInt>
+      <SingleInt state="Warning" value="2">
+        Degraded
+      </SingleInt>
+      <SingleInt state="Error" value="10">
+        Failure
+      </SingleInt>
+    </Lookups>
+  </ValueLookup>

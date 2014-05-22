@@ -1,0 +1,8 @@
+<?xml version="1.0"  encoding="iso-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ident">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z.]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

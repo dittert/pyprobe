@@ -1,0 +1,14 @@
+[General]
+key = ABD6C5D4-F5A4-4CDE-B22B-53DC58192602
+name = MacPro
+interval = 30
+host = https://temp04.intern.2o4.de
+
+[pegasusdrive]
+executable = /Users/dirk/IdeaProjects/servertools/tests/integration/pegasus/pegasus.py
+
+[pegasuslogdrive]
+executable = /Users/dirk/IdeaProjects/servertools/tests/integration/pegasus/pegasus.py
+
+[pegasusenclosure]
+executable = /Users/dirk/IdeaProjects/servertools/tests/integration/pegasus/pegasus.py

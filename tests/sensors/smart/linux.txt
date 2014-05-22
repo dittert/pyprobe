@@ -1,0 +1,110 @@
+smartctl version 5.38 [x86_64-unknown-linux-gnu] Copyright (C) 2002-8 Bruce Allen
+Home page is http://smartmontools.sourceforge.net/
+
+=== START OF INFORMATION SECTION ===
+Device Model:     WDC WD1002FBYS-01A6B0
+Serial Number:    WD-WMATV0999999
+Firmware Version: 03.00C05
+User Capacity:    1.000.204.886.016 bytes
+Device is:        Not in smartctl database [for details use: -P showall]
+ATA Version is:   8
+ATA Standard is:  Exact ATA specification draft version not indicated
+Local Time is:    Fri Jan 10 19:58:50 2014 CET
+SMART support is: Available - device has SMART capability.
+SMART support is: Enabled
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+General SMART Values:
+Offline data collection status:  (0x84)	Offline data collection activity
+					was suspended by an interrupting command from host.
+					Auto Offline Data Collection: Enabled.
+Self-test execution status:      (   0)	The previous self-test routine completed
+					without error or no self-test has ever
+					been run.
+Total time to complete Offline
+data collection: 		 (18600) seconds.
+Offline data collection
+capabilities: 			 (0x7b) SMART execute Offline immediate.
+					Auto Offline data collection on/off support.
+					Suspend Offline collection upon new
+					command.
+					Offline surface scan supported.
+					Self-test supported.
+					Conveyance Self-test supported.
+					Selective Self-test supported.
+SMART capabilities:            (0x0003)	Saves SMART data before entering
+					power-saving mode.
+					Supports SMART auto save timer.
+Error logging capability:        (0x01)	Error logging supported.
+					General Purpose Logging supported.
+Short self-test routine
+recommended polling time: 	 (   2) minutes.
+Extended self-test routine
+recommended polling time: 	 ( 214) minutes.
+Conveyance self-test routine
+recommended polling time: 	 (   5) minutes.
+SCT capabilities: 	       (0x303f)	SCT Status supported.
+					SCT Feature Control supported.
+					SCT Data Table supported.
+
+SMART Attributes Data Structure revision number: 16
+Vendor Specific SMART Attributes with Thresholds:
+ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+  1 Raw_Read_Error_Rate     0x002f   200   200   051    Pre-fail  Always       -       0
+  3 Spin_Up_Time            0x0027   253   253   021    Pre-fail  Always       -       1125
+  4 Start_Stop_Count        0x0032   100   100   000    Old_age   Always       -       42
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+  7 Seek_Error_Rate         0x002e   200   200   000    Old_age   Always       -       0
+  9 Power_On_Hours          0x0032   044   044   000    Old_age   Always       -       41151
+ 10 Spin_Retry_Count        0x0032   100   253   000    Old_age   Always       -       0
+ 11 Calibration_Retry_Count 0x0032   100   253   000    Old_age   Always       -       0
+ 12 Power_Cycle_Count       0x0032   100   100   000    Old_age   Always       -       41
+192 Power-Off_Retract_Count 0x0032   200   200   000    Old_age   Always       -       40
+193 Load_Cycle_Count        0x0032   200   200   000    Old_age   Always       -       42
+194 Temperature_Celsius     0x0022   115   106   000    Old_age   Always       -       35
+196 Reallocated_Event_Count 0x0032   200   200   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0032   200   200   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0030   200   200   000    Old_age   Offline      -       0
+199 UDMA_CRC_Error_Count    0x0032   200   197   000    Old_age   Always       -       39
+200 Multi_Zone_Error_Rate   0x0008   200   200   000    Old_age   Offline      -       0
+
+SMART Error Log Version: 1
+No Errors Logged
+
+SMART Self-test log structure revision number 1
+Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
+# 1  Extended offline    Completed without error       00%     40925         -
+# 2  Extended offline    Completed without error       00%     40188         -
+# 3  Extended offline    Completed without error       00%     39469         -
+# 4  Extended offline    Completed without error       00%     38725         -
+# 5  Extended offline    Completed without error       00%     38006         -
+# 6  Extended offline    Completed without error       00%     37262         -
+# 7  Extended offline    Completed without error       00%     36519         -
+# 8  Extended offline    Completed without error       00%     35800         -
+# 9  Extended offline    Completed without error       00%     35057         -
+#10  Extended offline    Completed without error       00%     34338         -
+#11  Extended offline    Completed without error       00%     33595         -
+#12  Extended offline    Completed without error       00%     32924         -
+#13  Extended offline    Completed without error       00%     32184         -
+#14  Extended offline    Completed without error       00%     31441         -
+#15  Extended offline    Completed without error       00%     30722         -
+#16  Extended offline    Completed without error       00%     29979         -
+#17  Extended offline    Completed without error       00%     29260         -
+#18  Extended offline    Completed without error       00%     28517         -
+#19  Extended offline    Completed without error       00%     27774         -
+#20  Extended offline    Completed without error       00%     27055         -
+#21  Extended offline    Completed without error       00%     26312         -
+
+SMART Selective self-test log data structure revision number 1
+ SPAN  MIN_LBA  MAX_LBA  CURRENT_TEST_STATUS
+    1        0        0  Not_testing
+    2        0        0  Not_testing
+    3        0        0  Not_testing
+    4        0        0  Not_testing
+    5        0        0  Not_testing
+Selective self-test flags (0x0):
+  After scanning selected spans, do NOT read-scan remainder of disk.
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+

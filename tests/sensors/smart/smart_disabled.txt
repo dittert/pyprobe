@@ -1,0 +1,17 @@
+smartctl 5.40 2010-10-16 r3189 [x86_64-unknown-linux-gnu] (SUSE RPM)
+Copyright (C) 2002-10 by Bruce Allen, http://smartmontools.sourceforge.net
+
+=== START OF INFORMATION SECTION ===
+Model Family:     Seagate Barracuda 7200.11 family
+Device Model:     ST3500320AS
+Serial Number:    9QM28X8L
+Firmware Version: SD1A
+User Capacity:    500,107,862,016 bytes
+Device is:        In smartctl database [for details use: -P show]
+ATA Version is:   8
+ATA Standard is:  ATA-8-ACS revision 4
+Local Time is:    Tue Nov  8 11:28:55 2011 CET
+SMART support is: Available - device has SMART capability.
+SMART support is: Disabled
+
+SMART Disabled. Use option -s with argument 'on' to enable it.
