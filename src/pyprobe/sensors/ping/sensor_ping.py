@@ -117,14 +117,14 @@ class PingParser(object):
         self.average = 0.0
 
         if out is not None:
-            regex = re.compile(u"(\\d+) packets transmitted, (\\d+) packets received", re.MULTILINE)
+            regex = re.compile(u"(\\d+) packets transmitted, (\\d+) (?:packets)*received", re.MULTILINE)
             matcher = regex.search(out)
             if matcher is not None:
                 self.transmitted = int(matcher.group(1))
                 self.received = int(matcher.group(2))
                 self.successful = self.transmitted == self.received
 
-            regex = re.compile(u"^round-trip.*/([\\d\\.]+)/.*ms", re.MULTILINE)
+            regex = re.compile(u"^(?:round-trip|rtt).*/([\\d\\.]+)/.*ms", re.MULTILINE)
             matcher = regex.search(out)
             if matcher is not None:
                 self.average = float(matcher.group(1))
