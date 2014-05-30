@@ -117,7 +117,7 @@ class PingParser(object):
         self.average = 0.0
 
         if out is not None:
-            regex = re.compile(u"(\\d+) packets transmitted, (\\d+) (?:packets)*received", re.MULTILINE)
+            regex = re.compile(u"(\\d+) packets transmitted, (\\d+) (?:packets )*received", re.MULTILINE)
             matcher = regex.search(out)
             if matcher is not None:
                 self.transmitted = int(matcher.group(1))
