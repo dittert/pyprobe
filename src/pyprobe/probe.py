@@ -90,7 +90,8 @@ def _init_config(cmd_options):
         _config_path = default_location
 
     if not path.exists(_config_path) and not path.isfile(_config_path):
-        raise InvalidConfig("No config file at location '%s'." % _config_path)
+        sys.stderr.write("Config file not found at {}. Exiting...\n".format(_config_path))
+        exit(-1)
 
     _handler = ConfigHandler(_config_path, _state_path)
     _config = _handler.config()
