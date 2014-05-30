@@ -17,4 +17,18 @@ else
 	echo ${RUN_DIR} already exists. Leaving it untouched. Please check manually.
 fi
 
-ln -s /usr/share/python/python-pyprobe/bin/pyprobe /usr/bin/python-pyprobe
+if [ ! -e "/usr/bin/python-pyprobe" ]; then
+	ln -s /usr/share/python/python-pyprobe/bin/pyprobe /usr/bin/python-pyprobe
+fi
+
+# Create default config
+if [ ! -e "/etc/pyprobe" ]; then
+	HOSTNAME=$(hostname)
+	cat > /etc/pyprobe <<END
+[General]
+key = <insert your key here>
+name = ${HOSTNAME}
+interval = 30
+host = <url of your core server>
+END
+fi
