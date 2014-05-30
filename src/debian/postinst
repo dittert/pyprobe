@@ -1,0 +1,20 @@
+#!/bin/bash
+
+RUN_DIR=/var/run/pyprobe
+CONFIG_DIR=/etc
+
+if [ ! -d "${RUN_DIR}" ]; then
+    mkdir -p ${RUN_DIR}
+	UUID=$(hostname)-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | head -n 1)
+	echo "{\"gid\": \"${UUID}\", \"state_version\": 1}" > ${RUN_DIR}/pyprtg.state
+	
+	echo
+	echo This agent will use GID ${UUID} to connect to your core server. Please set the 
+	echo key to connect in ${CONFIG_DIR}/pyprobe
+	echo 
+	
+else
+	echo ${RUN_DIR} already exists. Leaving it untouched. Please check manually.
+fi
+
+ln -s /usr/share/python/python-pyprobe/bin/pyprobe /usr/bin/python-pyprobe
