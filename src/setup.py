@@ -16,7 +16,7 @@ useful on Unix systems.\
       license='Apache 2',
       platforms='UNIX',
       packages=find_packages(),
-      requires=['mock==1.0.1'],
+#      requires=['mock==1.0.1'],
       install_requires=['requests==2.3.0', 'psutil==2.1.1'],
       entry_points = {
           'console_scripts' : [
