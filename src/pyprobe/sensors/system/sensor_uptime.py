@@ -18,7 +18,7 @@ class UptimeSensor(BaseSensor):
         return result
 
     def execute(self, sensorid, host, parameters, configuration):
-        uptime = datetime.now() - datetime.fromtimestamp(psutil.get_boot_time())
+        uptime = datetime.now() - datetime.fromtimestamp(psutil.boot_time())
         result = SensorResult(sensorid)
         channel = SensorChannel(u"System-Laufzeit", ModeType.FLOAT, ValueType.TIME_SECONDS, uptime.total_seconds())
         result.channel.append(channel)
