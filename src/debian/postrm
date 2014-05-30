@@ -1,0 +1,13 @@
+#!/bin/bash
+
+RUN_DIR=/var/cache/pyprobe
+CONFIG_FILE=/etc/pyprobe
+
+rm -rf ${RUN_DIR} >> /dev/null
+
+if [ -f ${CONFIG_FILE} ]; then
+	rm -f ${CONFIG_FILE} >> /dev/null
+fi
+
+rm -f /usr/bin/python-pyprobe >> /dev/null 
+

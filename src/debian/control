@@ -1,0 +1,12 @@
+Source: pyprobe
+Maintainer: Dirk Dittert <dirk.dittert@googlemail.com>
+Section: python
+Priority: optional
+Build-Depends: python-setuptools (>= 0.6b3), python2.7 (>= 2.7), debhelper (>= 7.4.3)
+Standards-Version: 3.9.1
+
+Package: python-pyprobe
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+Description: Python implementation of a PRTG MiniProbe
+
