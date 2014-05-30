@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUN_DIR=/var/run/pyprobe
+RUN_DIR=/var/cache/pyprobe
 CONFIG_DIR=/etc
 
 if [ ! -d "${RUN_DIR}" ]; then
