@@ -11,10 +11,18 @@ class ProbeInfo:
     def record_count(self, count):
         self._count += count
 
-    def record_bytes(self, bytes):
-        self._bytes += bytes
+    def record_bytes(self, b):
+        self._bytes += b
 
-    def record_header(self, header):
+    def record_response(self, res):
+        if res.request is not None:
+            if res.request.body is not None:
+                self.record_bytes(len(res.request.body))
+            self.record_bytes(len(res.request.url))
+            self._record_header(res.request.headers)
+            self._record_header(res.headers)
+
+    def _record_header(self, header):
         for key, value in header.items():
             self._bytes += len(key)
             self._bytes += len(value)

@@ -182,10 +182,7 @@ def _register_probe():
         try:
             res = requests.post(_config.prtg_url + '/probe/announce', data=payload, verify=False, timeout=10.0)
             _check_access_to_server(res)
-            _probe_info.record_bytes(len(res.request.body))
-            _probe_info.record_bytes(len(res.request.url))
-            _probe_info.record_header(res.request.headers)
-            _probe_info.record_header(res.headers)
+            _probe_info.record_response(res)
             break
         except ConnectionError as ex:
             message = "Could not register probe with server."
@@ -209,10 +206,7 @@ def _query_tasks():
         try:
             r = requests.get(_config.prtg_url + '/probe/tasks', params=getpayload, verify=False, timeout=10.0)
             _check_access_to_server(r)
-            _probe_info.record_bytes(len(r.request.url))
-            _probe_info.record_bytes(len(r.text))
-            _probe_info.record_header(r.request.headers)
-            _probe_info.record_header(r.headers)
+            _probe_info.record_response(r)
             p = pyprobe.TaskParser(r.status_code, r.text)
             return p.tasks()
         except ConnectionError:
@@ -256,14 +250,11 @@ def _publish_results(resultlist):
             res = requests.post(_config.prtg_url + '/probe/data', data=payload, verify=False, timeout=30.0)
             _check_access_to_server(res)
             _probe_info.record_count(len(resultlist))
-            _probe_info.record_bytes(len(res.request.body))
-            _probe_info.record_bytes(len(res.request.url))
-            _probe_info.record_header(res.request.headers)
-            _probe_info.record_header(res.headers)
+            _probe_info.record_response(res)
             message = "Published {} results to PRTG.".format(len(resultlist))
             syslog.syslog(syslog.LOG_DEBUG, message)
             if _verbose:
-                sys.stderr.write(message + "\n")
+                print(message)
             break
         except ConnectionError as ex:
             raise ProbeException(ex.message)
