@@ -16,6 +16,8 @@ from requests.exceptions import ConnectionError, Timeout
 
 import pyprobe
 from pyprobe.sensors.appleraid.sensor_appleraid import AppleRaidSensor
+from pyprobe.sensors.probe.probeinfo import ProbeInfo
+from pyprobe.sensors.probe.sensor_probeinfo import ProbeInfoSensor
 from pyprobe.sensors.system.sensor_diskio import DiskIOSensor
 from pyprobe.sensors.system.sensor_diskspace import DiskSpaceSensor
 from pyprobe.sensors.system.sensor_load_average import CpuLoadAverageSensor
@@ -48,6 +50,8 @@ _state_path = None
 """:type: unicode"""
 
 _verbose = False
+
+_probe_info = ProbeInfo()
 
 
 def _init_state_path(cmd_options):
@@ -101,6 +105,8 @@ def _init_config(cmd_options):
 
 
 def _init_sensors():
+    _sensors[ProbeInfoSensor.KIND] = ProbeInfoSensor(_probe_info)
+
     _sensors[PingSensor.KIND] = PingSensor()
 
     _sensors[CpuPerCoreSensor.KIND] = CpuPerCoreSensor()
@@ -176,6 +182,10 @@ def _register_probe():
         try:
             res = requests.post(_config.prtg_url + '/probe/announce', data=payload, verify=False, timeout=10.0)
             _check_access_to_server(res)
+            _probe_info.record_bytes(len(res.request.body))
+            _probe_info.record_bytes(len(res.request.url))
+            _probe_info.record_header(res.request.headers)
+            _probe_info.record_header(res.headers)
             break
         except ConnectionError as ex:
             message = "Could not register probe with server."
@@ -199,6 +209,10 @@ def _query_tasks():
         try:
             r = requests.get(_config.prtg_url + '/probe/tasks', params=getpayload, verify=False, timeout=10.0)
             _check_access_to_server(r)
+            _probe_info.record_bytes(len(r.request.url))
+            _probe_info.record_bytes(len(r.text))
+            _probe_info.record_header(r.request.headers)
+            _probe_info.record_header(r.headers)
             p = pyprobe.TaskParser(r.status_code, r.text)
             return p.tasks()
         except ConnectionError:
@@ -241,6 +255,11 @@ def _publish_results(resultlist):
         try:
             res = requests.post(_config.prtg_url + '/probe/data', data=payload, verify=False, timeout=30.0)
             _check_access_to_server(res)
+            _probe_info.record_count(len(resultlist))
+            _probe_info.record_bytes(len(res.request.body))
+            _probe_info.record_bytes(len(res.request.url))
+            _probe_info.record_header(res.request.headers)
+            _probe_info.record_header(res.headers)
             message = "Published {} results to PRTG.".format(len(resultlist))
             syslog.syslog(syslog.LOG_DEBUG, message)
             if _verbose:

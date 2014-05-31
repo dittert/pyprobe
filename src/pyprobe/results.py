@@ -47,7 +47,7 @@ class ValueType(object):
     COUNT = u'Count'
     CPU = u'CPU'
     CUSTOM = u'Custom'
-    SPEED_DIST = u'SpeedDisk'
+    SPEED_DISK = u'SpeedDisk'
     SPEED_NET = u'SpeedNet'
 
 

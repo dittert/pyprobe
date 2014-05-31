@@ -199,7 +199,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$PROJECT_DIR$/python/bin/python" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -207,7 +207,7 @@
       <module name="pyprobe" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pyprobe/probe.py" />
-      <option name="PARAMETERS" value="--config=./default_config.txt --state=./default_state.txt" />
+      <option name="PARAMETERS" value="--config=./default_config.txt --state=./default_state.txt --verbose" />
       <RunnerSettings RunnerId="JRebel Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
