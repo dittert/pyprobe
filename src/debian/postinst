@@ -31,4 +31,8 @@ name = ${HOSTNAME}
 interval = 30
 host = <url of your core server>
 END
+
+# Set permissions of config file (it contains key to access server)
+chown root:root /etc/pyprobe
+chmod 600 /etc/pyprobe
 fi
