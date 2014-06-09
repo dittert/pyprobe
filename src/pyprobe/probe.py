@@ -60,7 +60,7 @@ def _init_state_path(cmd_options):
     if platform.system() == "Darwin":
         default_location = "/Library/Application Support/de.tfobjects.pyprobe.state"
     elif platform.system() == "Linux":
-        default_location = "/var/cache/pyprobe/pyprtg.state"
+        default_location = "/var/cache/pyprobe/pyprobe.state"
     else:
         default_location = None
 

@@ -6,7 +6,7 @@ CONFIG_DIR=/etc
 if [ ! -d "${RUN_DIR}" ]; then
     mkdir -p ${RUN_DIR}
 	UUID=$(hostname)-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | head -n 1)
-	echo "{\"gid\": \"${UUID}\", \"state_version\": 1}" > ${RUN_DIR}/pyprtg.state
+	echo "{\"gid\": \"${UUID}\", \"state_version\": 1}" > ${RUN_DIR}/pyprobe.state
 	
 	echo
 	echo This agent will use GID ${UUID} to connect to your core server. Please set the 
