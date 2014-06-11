@@ -33,6 +33,9 @@
     <file url="file://$PROJECT_DIR$/src/pyprobe/sensors/sensor_base.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/tests/IterationTest.py" charset="UTF-8" />
   </component>
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
   <component name="IdProvider" IDEtalkID="102F570818FA56A7155B6CBEA1BD9198" />
   <component name="InspectionProjectProfileManager">
     <profiles>

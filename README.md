@@ -30,8 +30,6 @@ OS X specific sensors:
 Installation and Requirements
 =============================
 
-At the moment, there are no binary packages to install. That part still is work in progress...
-
 OS X
 ----
 Python 2.7 is included in OS X 10.8 and 10.9.
@@ -40,12 +38,23 @@ An installation of smartmontools is required if you're planning on monitoring S.
 install smartmontools is through Home Brew or MacPorts. Make sure that you set the correct path to smartctl
 in the configuration file.
 
-Linux
------
-I'm currently using Ubuntu 12.04 LTS and Ubuntu 13.10. It will most probably work on a lot more distributions, but
- you're completely on your own with that.
+There is no prepackaged version at the moment but will be available later.
+
+Ubuntu
+------
+I am still working on the installation process of the probe. A full ppa with signed .deb files will be available later.
+
+**Although the probe is running quite well, it is not yet ready for production use. Packaging for Debian/Ubuntu 
+isn't fully done yet. User at your own risk!**
+
+Please perform the following steps to install the probe on Ubuntu 12.04:
+ 
+ * wget http://pyprobe.24objects.de/python-pyprobe_1.0_all.deb
+ * sudo dpkg -i python-pyprobe_1.0_all.deb
+ * Edit the configuration file in /etc/pyprobe. You need to provide the key to access the server (Configuration >
+   Server & Probes) and the hostname of the server
+ * sudo service python-pyprobe start
 
 An installation of smartmontools is required if you're planning on monitoring S.M.A.R.T. values. You can install this
 dependency with the package manager of your system. Make sure that you set the correct path to smartctl in the
 configuration file.
-
