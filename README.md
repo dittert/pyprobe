@@ -47,9 +47,10 @@ I am still working on the installation process of the probe. A full ppa with sig
 **Although the probe is running quite well, it is not yet ready for production use. Packaging for Debian/Ubuntu 
 isn't fully done yet. User at your own risk!**
 
-Please perform the following steps to install the probe on Ubuntu 12.04:
+Please perform the following steps to install the probe on Ubuntu 12.04 or 13.10:
  
- * wget http://pyprobe.24objects.de/python-pyprobe_1.0_all.deb
+ * wget http://pyprobe.24objects.de/precise/python-pyprobe_1.0_all.deb
+ * wget http://pyprobe.24objects.de/saucy/python-pyprobe_1.0_all.deb
  * sudo dpkg -i python-pyprobe_1.0_all.deb
  * Edit the configuration file in /etc/pyprobe. You need to provide the key to access the server (Configuration >
    Server & Probes) and the hostname of the server
