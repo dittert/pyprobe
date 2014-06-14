@@ -18,6 +18,7 @@ import pyprobe
 from pyprobe.sensors.appleraid.sensor_appleraid import AppleRaidSensor
 from pyprobe.sensors.probe.probeinfo import ProbeInfo
 from pyprobe.sensors.probe.sensor_probeinfo import ProbeInfoSensor
+from pyprobe.sensors.sensors.sensor_coretemp import LinuxCoreTempSensor
 from pyprobe.sensors.system.sensor_diskio import DiskIOSensor
 from pyprobe.sensors.system.sensor_diskspace import DiskSpaceSensor
 from pyprobe.sensors.system.sensor_load_average import CpuLoadAverageSensor
@@ -117,6 +118,8 @@ def _init_sensors():
     _sensors[DiskSpaceSensor.KIND] = DiskSpaceSensor()
     _sensors[DiskIOSensor.KIND] = DiskIOSensor()
     _sensors[UptimeSensor.KIND] = UptimeSensor()
+
+    _sensors[LinuxCoreTempSensor.KIND] = LinuxCoreTempSensor()
 
     _sensors[SmartSensor.KIND] = SmartSensor()
     _sensors[PegasusLogicalDriveSensor.KIND] = PegasusLogicalDriveSensor()
