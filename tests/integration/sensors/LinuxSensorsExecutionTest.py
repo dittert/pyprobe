@@ -9,12 +9,31 @@ __author__ = 'Dirk Dittert'
 
 FAKE_UTIL = path.join(path.dirname(__file__), 'sensors.py')
 NO_CORETEMP_UTIL = path.join(path.dirname(__file__), 'no_coretemp.py')
+FAIL = path.join(path.dirname(path.dirname(__file__)), 'fail.py')
 
 ID = '1234'
 LOCALHOST = '127.0.0.1'
 
 
 class LinuxSensorsExecutionTest(unittest.TestCase):
+
+    def test_sensor_should_only_run_on_localhost(self):
+        with Platform("Linux"):
+            subject = LinuxCoreTempSensor()
+            params = {u'cpus': u'alle'}
+            result = subject.execute(ID, u"10.10.10.10", params, {'executable': FAKE_UTIL})
+
+            self.assertIsInstance(result, SensorError)
+            self.assertEqual(LinuxCoreTempSensor.ERROR_CODE_NOT_LOCALHOST, result.code)
+
+    def test_sensor_should_return_execution_error(self):
+        with Platform("Linux"):
+            subject = LinuxCoreTempSensor()
+            params = {u'cpus': u'alle'}
+            result = subject.execute(ID, LOCALHOST, params, {'executable': FAIL})
+
+            self.assertIsInstance(result, SensorError)
+            self.assertEqual(LinuxCoreTempSensor.ERROR_CODE_EXECUTION_ERROR, result.code)
 
     def test_no_sensors_should_return_error(self):
         with Platform("Linux"):

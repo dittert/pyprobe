@@ -17,6 +17,7 @@ class LinuxCoreTempSensor(BaseSensor):
 
     ERROR_CODE_EXECUTION_ERROR = 1
     ERROR_CODE_NO_CPUS = 2
+    ERROR_CODE_NOT_LOCALHOST = 3
 
     def define(self, configuration):
         if platform.system() != "Linux":
@@ -37,6 +38,10 @@ class LinuxCoreTempSensor(BaseSensor):
         return result
 
     def execute(self, sensorid, host, parameters, configuration):
+        if host != u'127.0.0.1':
+            message = u'Dieser Sensor funktioniert nur auf dem Sensor der Miniprobe.'
+            return SensorError(sensorid, self.ERROR_CODE_NOT_LOCALHOST, message)
+
         executable = determine_executable(configuration)
         command = u'LC_ALL=C {}'.format(executable)
         proc = subprocess.Popen(to_bytes(command), shell=True,
@@ -44,7 +49,8 @@ class LinuxCoreTempSensor(BaseSensor):
         _, out = get_outputs_of_process(proc)
 
         if proc.returncode != 0:
-            return None
+            message = u"Ausführung von {} ist mit Fehlercode {} gescheitert.".format(executable, proc.returncode)
+            return SensorError(sensorid, self.ERROR_CODE_EXECUTION_ERROR, message, ErrorType.RESPONSE)
 
         parser = LinuxSensorsParser(out)
         if u'cpus' not in parameters or parameters[u'cpus'].strip() in (u'alle', u'all'):
