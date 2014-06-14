@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/pyprobe/configuration.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pyprobe/descriptions.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pyprobe/iteration.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pyprobe/probe.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pyprobe/sensors/pegasus/sensor_enclosure.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pyprobe/sensors/ping/sensor_ping.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/pyprobe/sensors/sensor_base.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tests/IterationTest.py" charset="UTF-8" />
+  </component>
+</project>
+
