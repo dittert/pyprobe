@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/pyprobe.iml" filepath="$PROJECT_DIR$/pyprobe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pyprobe.iml" filepath="$PROJECT_DIR$/.idea/pyprobe.iml" />
     </modules>
   </component>
 </project>
