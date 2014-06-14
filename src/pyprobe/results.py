@@ -130,12 +130,19 @@ class SensorResult(object):
     def __init__(self, sensorid, message=None):
         self.sensorid = sensorid
         self.message = message
-        self.channel = []
+        self._channel = []
+
+    @property
+    def channel(self):
+        """
+        :rtype: list[SensorChannel]
+        """
+        return self._channel
 
     def jsonfields(self):
         result = {
             u'sensorid': self.sensorid,
-            u'channel': self.channel
+            u'channel': self._channel
         }
         if self.message is not None:
             result[u'message'] = self.message

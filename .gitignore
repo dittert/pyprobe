@@ -6,3 +6,5 @@ python/
 python3.3/
 __pycache__/
 src/build/
+.idea/workspace.xml
+.idea/tasks.xml

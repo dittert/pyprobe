@@ -23,7 +23,6 @@ fi
 
 # Create default config
 if [ ! -e "/etc/pyprobe" ]; then
-	HOSTNAME=$(hostname)
 	cat > /etc/pyprobe <<END
 [General]
 key = <insert your key here>

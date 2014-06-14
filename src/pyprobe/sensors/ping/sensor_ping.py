@@ -47,12 +47,12 @@ class PingSensor(BaseSensor):
         group.fields.append(field_size)
 
         field_method = FieldDescription(u'method', u"Pingmethode", InputTypes.RADIO)
-        field_method.help = u'PRTG kann alternativ ein einzelnes Ping für einen einfachen Verfuübarkeitstest oder ' \
-                            u'eine ganze Serie an Pinganfragen abschicken. Diese Mehrfachpings dienen der Messung ' \
-                            u'von Paketverlusten und minimaler/maximaler Pingzeit. Eine Einstellung von "1" ist für ' \
-                            u'das Verfügbarkeitsmonitoring gedacht. Verwenden Sie höhere Werte, um den Paketverlust ' \
-                            u'zu ermitteln (z.B. 10 oder 100 Pinganfragen). Achtung: Bei Mehrfachpings muessen alle ' \
-                            u'Anfragen fehlschlagen, um den Sensor in den Fehlerzustand zu versetzen.'
+        field_method.help = u'Die Probe kann alternativ ein einzelnes Ping für einen einfachen Verfübarkeitstest ' \
+                            u'oder eine ganze Serie an Pinganfragen abschicken. Diese Mehrfachpings dienen der ' \
+                            u'Messung von Paketverlusten und minimaler/maximaler Pingzeit. Eine Einstellung von "1" ' \
+                            u'ist für das Verfügbarkeitsmonitoring gedacht. Verwenden Sie höhere Werte, um den ' \
+                            u'Paketverlust zu ermitteln (z.B. 10 oder 100 Pinganfragen). Achtung: Bei Mehrfachpings ' \
+                            u'müssen alle Anfragen fehlschlagen, um den Sensor in den Fehlerzustand zu versetzen.'
 
         # use an ordered dict here, because the order of items in the UI is important...
         field_method.options = OrderedDict([
