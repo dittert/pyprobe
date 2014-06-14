@@ -33,11 +33,14 @@ Ch. 3 DIMM 1:  +52.0°C  (low  = +127.5°C, high = +127.5°C)
 """
 
 
-
 class LinuxSensorsParserTest(unittest.TestCase):
 
-    def test_sensors(self):
+    def test_sensor_names_should_be_correct(self):
         subject = LinuxSensorsParser(SAMPLE_OUTPUT)
-        sensors = subject.sensors
-        print sensors
-        
+        names = [name for (t, name, chunk) in subject.sensors]
+        self.assertEqual([u'coretemp-isa-0000', u'coretemp-isa-0001', u'i5k_amb-isa-0000'], names)
+
+    def test_sensor_types_should_be_correct(self):
+        subject = LinuxSensorsParser(SAMPLE_OUTPUT)
+        types = [t for (t, name, chunk) in subject.sensors]
+        self.assertEqual([u'coretemp-isa', u'coretemp-isa', u'i5k_amb-isa'], types)

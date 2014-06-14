@@ -1,6 +1,6 @@
 # coding=utf-8
 import unittest
-from pyprobe.sensors.sensors.LinuxSensorsParser import LinuxCoreTemperatureParser
+from pyprobe.sensors.sensors.LinuxCoreTemperatureParser import LinuxCoreTemperatureParser
 
 __author__ = 'Dirk Dittert'
 

@@ -13,7 +13,7 @@ def get_outputs_of_process(proc):
     """
 
     out, err = proc.communicate()
-    encoding = sys.getdefaultencoding()
+    encoding = sys.stdin.encoding
     if out is not None:
         out = out.decode(encoding)
     if err is not None:
