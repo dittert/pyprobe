@@ -14,3 +14,11 @@ pip install --upgrade distribute
 curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | python
 http://labs.spotify.com/2013/10/10/packaging-in-your-packaging-dh-virtualenv/
 
+URLs
+https://wiki.debian.org/SettingUpSignedAptRepositoryWithReprepro
+http://debathena.mit.edu/packaging/#control
+http://ghantoos.org/2008/10/19/creating-a-deb-package-from-a-python-setuppy/
+http://upstart.ubuntu.com/getting-started.html
+http://pythonhosted.org/setuptools/setuptools.html#automatic-script-creation
+https://docs.python.org/2/distutils/apiref.html
+
