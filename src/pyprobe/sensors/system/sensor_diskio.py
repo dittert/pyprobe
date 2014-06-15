@@ -1,4 +1,5 @@
 # coding=utf-8
+import os
 import psutil
 from pyprobe.sensors import *
 
@@ -30,24 +31,27 @@ class DiskIOSensor(BaseSensor):
 
         counters = psutil.disk_io_counters(perdisk=True)
         devices = [u"/dev/{}".format(d) for d in counters.keys()]
+
+        # Dereference symbolic links. This allows to provide /dev/disk/by-disklabel/system instead of /dev/sda3
+        user_specified_device = device
+        if os.path.islink(device) and device.startswith(u'/dev/'):
+            device = os.path.realpath(device)
+
         if not device in devices:
-            message = u"Unbekanntes Gerät {}. Mögliche Geräte sind: {}".format(device, ", ".join(devices))
+            message = u"Unbekanntes Gerät {}. Mögliche Geräte sind: {}".format(user_specified_device, ", ".join(devices))
             return SensorError(sensorid, self.ERROR_INVALID_DEVICE, message)
 
         data = next(d[1] for d in counters.items() if u"/dev/{}".format(d[0]) == device)
         result = SensorResult(sensorid)
-        channel = SensorChannel(u"Summe Byte", ModeType.COUNTER, u"SpeedDisk",
-                                data.read_bytes + data.write_bytes)
+        channel = SensorChannel(u"Summe Byte", ModeType.COUNTER, u"SpeedDisk", data.read_bytes + data.write_bytes)
         channel.speed_size = SizeUnitType.KILO_BYTE
         channel.volume_size = SizeUnitType.MEGA_BYTE
         result.channel.append(channel)
-        channel = SensorChannel(u"Byte gelesen", ModeType.COUNTER, u"SpeedDisk",
-                                data.read_bytes)
+        channel = SensorChannel(u"Byte gelesen", ModeType.COUNTER, u"SpeedDisk", data.read_bytes)
         channel.speed_size = SizeUnitType.KILO_BYTE
         channel.volume_size = SizeUnitType.MEGA_BYTE
         result.channel.append(channel)
-        channel = SensorChannel(u"Byte geschrieben", ModeType.COUNTER, u"SpeedDisk",
-                                data.write_bytes)
+        channel = SensorChannel(u"Byte geschrieben", ModeType.COUNTER, u"SpeedDisk", data.write_bytes)
         channel.speed_size = SizeUnitType.KILO_BYTE
         channel.volume_size = SizeUnitType.MEGA_BYTE
         result.channel.append(channel)
