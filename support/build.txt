@@ -1,0 +1,16 @@
+Build Voraussetzungen
+python-dev 
+
+
+LC_ALL=C debuild --no-tgz-check -b
+
+dh_clean entfernt temporäre Dateien
+
+SetupTools aktualisieren
+http://stackoverflow.com/questions/22148144/python-importerror-no-module-named-pkg-resources
+pip install --upgrade setuptools
+pip install --upgrade distribute
+
+curl https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py | python
+http://labs.spotify.com/2013/10/10/packaging-in-your-packaging-dh-virtualenv/
+

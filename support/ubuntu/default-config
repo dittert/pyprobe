@@ -1,8 +1,0 @@
-# You need to configure the General section below
-
-[General]
-key = 865894fa-b5ba-11e3-a778-00155d01cd07
-name = Name of probe
-interval = 30
-host = https://prtghost
-
