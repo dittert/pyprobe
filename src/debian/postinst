@@ -43,3 +43,11 @@ else
 	chmod 600 /etc/pyprobe
 	echo /etc/pyprobe already exsists. Please check its contents before running the probe.
 fi
+
+# Even though http://upstart.ubuntu.com/cookbook/#upstart-in-debian-and-ubuntu-debian-and-ubuntu-specific 
+# says that the links in /etc/init.d are not required for upstart jobs anymore: If they are not present,
+# service python-pyprobe start will not work. So, let's just create the link manually. 
+/sbin/initctl reload-configuration
+if [ ! -e /etc/init.d/python-pyprobe ]; then	
+	ln -s /lib/init/upstart-job /etc/init.d/python-pyprobe
+fi
