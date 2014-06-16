@@ -1,12 +1,16 @@
 #!/bin/bash
 
 RUN_DIR=/var/cache/pyprobe
+STATE_FILE=/var/cache/pyprobe/pyprobe.state
 CONFIG_DIR=/etc
 
 if [ ! -d "${RUN_DIR}" ]; then
     mkdir -p ${RUN_DIR}
+fi
+
+if [ ! -e "${STATE_FILE}" ]; then
 	UUID=$(hostname)-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 6 | head -n 1)
-	echo "{\"gid\": \"${UUID}\", \"state_version\": 1}" > ${RUN_DIR}/pyprobe.state
+	echo "{\"gid\": \"${UUID}\", \"state_version\": 1}" > ${STATE_FILE}
 	
 	echo
 	echo This agent will use GID ${UUID} to connect to your core server. Please set the 
@@ -14,7 +18,7 @@ if [ ! -d "${RUN_DIR}" ]; then
 	echo 
 	
 else
-	echo ${RUN_DIR} already exists. Leaving it untouched. Please check manually.
+	echo ${RUN_DIR} already exists. Leaving it untouched. Please check its contents manually.
 fi
 
 if [ ! -e "/usr/bin/python-pyprobe" ]; then
@@ -31,7 +35,11 @@ interval = 30
 host = <url of your core server>
 END
 
-# Set permissions of config file (it contains key to access server)
-chown root:root /etc/pyprobe
-chmod 600 /etc/pyprobe
+	# Set permissions of config file (it contains key to access server)
+	chown root:root /etc/pyprobe
+	chmod 600 /etc/pyprobe
+else
+	chown root:root /etc/pyprobe
+	chmod 600 /etc/pyprobe
+	echo /etc/pyprobe already exsists. Please check its contents before running the probe.
 fi
