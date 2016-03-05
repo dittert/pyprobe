@@ -1,0 +1,129 @@
+cliib> logdrv
+===============================================================================
+LdId Alias       OpStatus      Capacity  Stripe RAID    CachePolicy     SYNCed
+===============================================================================
+No configured logical drive in the subsystem
+
+
+cliib> phydrv
+===============================================================================
+PdId Model        Type      Capacity  Location      OpStatus  ConfigStatus     
+===============================================================================
+1    WDC WD60EFRX SATA HDD  6TB       Encl1 Slot1   OK        Unconfigured     
+2    WDC WD60EFRX SATA HDD  6TB       Encl1 Slot2   OK        PassThru         
+3    WDC WD60EFRX SATA HDD  6TB       Encl1 Slot3   OK        PassThru         
+4    WDC WD60EFRX SATA HDD  6TB       Encl1 Slot4   OK        PassThru         
+5    WDC WD60EFRX SATA HDD  6TB       Encl1 Slot5   OK        PassThru         
+6    WDC WD60EFRX SATA HDD  6TB       Encl1 Slot6   OK        PassThru         
+
+cliib> array
+===============================================================================
+DaId Alias     OpStatus      CfgCapacity FreeCapacity   MaxContiguousCapacity 
+===============================================================================
+No configured disk array in the subsystem
+
+
+cliib> array
+===============================================================================
+DaId Alias     OpStatus      CfgCapacity FreeCapacity   MaxContiguousCapacity 
+===============================================================================
+0    BigData   OK            36.01TB     36.01TB        36.01TB         
+
+
+cliib> logdrv
+===============================================================================
+LdId Alias       OpStatus      Capacity  Stripe RAID    CachePolicy     SYNCed
+===============================================================================
+0    BigData     Synchronizing 30TB      256KB  RAID5   RAhead/WBack    No    
+
+
+cliib> logdrv -v
+ 
+-------------------------------------------------------------------------------
+LdId: 0
+ArrayId: 0                             SYNCed: No
+OperationalStatus: OK, Synchronizing
+Alias: BigData
+SerialNo: 000000000000000000000000B75FD79960E3C524
+WWN: 22bb-0001-55b8-8493               PreferredCtrlId: N/A
+RAIDLevel: RAID5                       StripeSize: 256KB
+Capacity: 30TB                         PhysicalCapacity: 36.01TB
+ReadPolicy: ReadAhead                  WritePolicy: WriteBack
+CurrentWritePolicy: WriteBack
+NumOfUsedPD: 6                         NumOfAxles: 1
+SectorSize: 512Bytes                   RAID5&6Algorithm: right asymmetric (4)
+TolerableNumOfDeadDrivesPerAxle: 1     ParityPace: N/A
+CodecScheme: N/A
+ 
+
+cliib> array -v
+ 
+-------------------------------------------------------------------------------
+DaId: 0
+OperationalStatus: OK
+Alias: BigData
+PhysicalCapacity: 36.01TB              ConfigurableCapacity: 36.01TB
+FreeCapacity: 0Byte                    MaxContiguousCapacity: 0Byte
+AvailableRAIDLevels: 0 5 6 10 50 1E
+PDM: Enabled                           MediaPatrol: Enabled
+NumberOfPhysicalDrives: 6              NumberOfLogicalDrives: 1
+NumberOfDedicatedSpares: 0
+UserSetPowerSavingLevel: 1             CurrentPowerSavingLevel: 0
+PowerManagement: Enabled
+ 
+Physical Drives in the Array:  
+===============================================================================
+SeqNo PdId CfgCapacity FreeCapacity OpStatus                                   
+===============================================================================
+0     1    6TB         600.58KB     OK                                         
+1     2    6TB         600.58KB     OK                                         
+2     3    6TB         600.58KB     OK                                         
+3     4    6TB         600.58KB     OK                                         
+4     5    6TB         600.58KB     OK                                         
+5     6    6TB         600.58KB     OK                                         
+ 
+Logical Drives in the Array:  
+===============================================================================
+LdId Alias          RAIDLevel Capacity  OpStatus                               
+===============================================================================
+0    BigData        RAID5     30TB      OK, Synchronizing                      
+ 
+Available Spares to the Array:  
+===============================================================================
+Id  OpStatus  PdId CfgCapacity Revertible Type      DedicatedToArray          
+===============================================================================
+No spare drive available in the array
+ 
+cliib> bga
+-------------------------------------------------------------------------------
+BGA Summary
+-------------------------------------------------------------------------------
+NumberOfRebuild: 0                     NumberOfMigration: 0
+NumberOfPDM: 0                         NumberOfTransition: 0
+NumberOfSync: 1                        NumberOfInit: 0
+NumberOfRC: 0                          NumberOfMP: 0
+NumberOfLunC: 0
+LastMPStart: Sep 4, 2013 22:18:56      LastMPStop: May 24, 2013 23:30:55
+ 
+-------------------------------------------------------------------------------
+BGA Settings
+-------------------------------------------------------------------------------
+AutoRebuild: Enabled                   MediaPatrol: Enabled
+AutoRebuildToDeadDisk: Disabled
+ 
+RebuildRate: High                      MigrationRate: High
+PDMRate: High                          TransitionRate: Medium
+SyncRate: Low                          InitRate: Medium
+RCRate: Medium
+ReAssignedBlock: 32                    ErrorBlock: 32
+ 
+-------------------------------------------------------------------------------
+BGA Progress
+-------------------------------------------------------------------------------
+ 
+Synchronization Progress:
+===============================================================================
+LdId State       Percentage
+===============================================================================
+0    Running     3         
+

@@ -1,0 +1,22 @@
+/shire> info c3
+
+Unit  UnitType  Status         %RCmpl  %V/I/M  Stripe  Size(GB)  Cache  AVrfy
+------------------------------------------------------------------------------
+u0    RAID-6    OK             -       -       256K    29802.2   Ri     ON
+
+VPort Status         Unit Size      Type  Phy Encl-Slot    Model
+------------------------------------------------------------------------------
+p8    OK             u0   3.63 TB   SATA  -   /c3/e0/slt0  WDC WD4000FYYZ-01UL
+p9    OK             u0   3.63 TB   SATA  -   /c3/e0/slt1  WDC WD4000FYYZ-01UL
+p10   OK             u0   3.63 TB   SATA  -   /c3/e0/slt2  WDC WD4000FYYZ-01UL
+p11   OK             u0   3.63 TB   SATA  -   /c3/e0/slt3  WDC WD4000FYYZ-01UL
+p12   OK             u0   3.63 TB   SATA  -   /c3/e0/slt4  WDC WD4000FYYZ-01UL
+p13   OK             u0   3.63 TB   SATA  -   /c3/e0/slt5  WDC WD4000FYYZ-01UL
+p14   OK             u0   3.63 TB   SATA  -   /c3/e0/slt6  WDC WD4000FYYZ-01UL
+p15   OK             u0   3.63 TB   SATA  -   /c3/e0/slt7  WDC WD4000FYYZ-01UL
+p16   OK             u0   3.63 TB   SATA  -   /c3/e0/slt8  WDC WD4000FYYZ-01UL
+p17   OK             u0   3.63 TB   SATA  -   /c3/e0/slt9  WDC WD4000FYYZ-01UL
+
+Name  OnlineState  BBUReady  Status    Volt     Temp     Hours  LastCapTest
+---------------------------------------------------------------------------
+bbu   On           No        WeakBat   OK       OK       3      06-Feb-2014
